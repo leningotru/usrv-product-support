@@ -1,6 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
-import { requestUpdateTicket, TicketCreatedEvent, updateTicketInput } from './infraestructure/Interface';
+import {
+  requestUpdateTicket,
+  TicketCreatedEvent,
+  updateTicketInput,
+} from './infraestructure/Interface';
 import { StatusEnum } from './infraestructure/ValidationEnum';
 
 const queryMutation: string = `
@@ -15,7 +19,7 @@ export class AppService {
     return 'Hello World!';
   }
   async handleTicketCreated(ticketCreatedEvent: TicketCreatedEvent) {
-    console.log("New Notification tu Update State", ticketCreatedEvent)
+    console.log('New Notification tu Update State', ticketCreatedEvent);
 
     const variables: updateTicketInput = {
       updateTicketInput: {
@@ -25,8 +29,8 @@ export class AppService {
     };
     const data: requestUpdateTicket = {
       query: queryMutation,
-      variables
-    }
+      variables,
+    };
     try {
       const response = await axios.post('http://localhost:4000/graphql', data);
       return response.data;

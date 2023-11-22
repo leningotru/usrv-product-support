@@ -11,6 +11,6 @@ export interface updateTicketInput {
 }
 
 export interface TicketCreatedEvent {
-  id: string,
-  state: number,
+  id: string;
+  state: number;
 }

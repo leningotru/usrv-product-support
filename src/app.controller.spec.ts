@@ -21,10 +21,13 @@ describe('AppController', () => {
     it('should call appService.handleTicketCreated with the correct data', () => {
       const ticketCreatedEvent: TicketCreatedEvent = {
         id: '3',
-        state:404
+        state: 404,
       };
 
-      const handleTicketCreatedSpy = jest.spyOn(appService, 'handleTicketCreated');
+      const handleTicketCreatedSpy = jest.spyOn(
+        appService,
+        'handleTicketCreated',
+      );
       appController.handleTicketCreated(ticketCreatedEvent);
       expect(handleTicketCreatedSpy).toHaveBeenCalledWith(ticketCreatedEvent);
     });

@@ -20,8 +20,8 @@ describe('AppService', () => {
   describe('handleTicketCreated', () => {
     it('should call axios.post with the correct data and return the response', async () => {
       const ticketCreatedEvent: TicketCreatedEvent = {
-        id: "3f2a1078-e7e5-419e-a695-bfc607a1e979",
-        state:23
+        id: '3f2a1078-e7e5-419e-a695-bfc607a1e979',
+        state: 23,
       };
 
       const axiosPostSpy = jest.spyOn(axios, 'post');
@@ -46,17 +46,17 @@ describe('AppService', () => {
 
     it('should throw an error if axios.post fails', async () => {
       const ticketCreatedEvent: TicketCreatedEvent = {
-        id: "3f2a1078-e7e5-419e-a695-bfc607a1e979",
-        state:23
+        id: '3f2a1078-e7e5-419e-a695-bfc607a1e979',
+        state: 23,
       };
 
       const axiosPostSpy = jest.spyOn(axios, 'post');
       const expectedError = new Error('Mocked axios error');
       axiosPostSpy.mockRejectedValue(expectedError);
 
-      await expect(appService.handleTicketCreated(ticketCreatedEvent)).rejects.toThrowError(
-        `Error fetching data: ${expectedError.message}`,
-      );
+      await expect(
+        appService.handleTicketCreated(ticketCreatedEvent),
+      ).rejects.toThrowError(`Error fetching data: ${expectedError.message}`);
     });
   });
 
@@ -66,6 +66,5 @@ describe('AppService', () => {
 
       expect(Object.values(StatusEnum)).toContain(result);
     });
-  })
-
+  });
 });
