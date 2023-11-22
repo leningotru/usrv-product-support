@@ -66,8 +66,6 @@ describe('AppService', () => {
 
       expect(Object.values(StatusEnum)).toContain(result);
     });
-  });
-
-  // Agrega más pruebas según sea necesario
+  })
 
 });
